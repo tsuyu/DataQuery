@@ -22,8 +22,8 @@ public class DataQuery {
 	public DataQuery(String page) {
 		try {
 			context = new AnnotationConfigApplicationContext(
-					Application.class);
-			DataComponent ds = context.getBean(DataComponent.class);
+					DataApplication.class);
+			DataComponentStaging ds = context.getBean(DataComponentStaging.class);
 			this.conn = ds.getConnection();
 			this.page = page;
 			// id = UUID.randomUUID();
