@@ -8,22 +8,22 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class DataQuery {
 
 	private Connection conn;
 	private String page;
+	private ApplicationContext context;
 
 	// UUID id;
 
 	public DataQuery(String page) {
 		try {
-			Context initCtx = new InitialContext();
-			Context envCtx = (Context) initCtx.lookup("java:comp/env");
-			DataSource ds = (DataSource) envCtx.lookup("jdbc/dmdb");
+			context = new AnnotationConfigApplicationContext(
+					Application.class);
+			DataComponent ds = context.getBean(DataComponent.class);
 			this.conn = ds.getConnection();
 			this.page = page;
 			// id = UUID.randomUUID();
