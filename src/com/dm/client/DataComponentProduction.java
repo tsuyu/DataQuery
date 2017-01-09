@@ -5,7 +5,7 @@ import java.sql.Connection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component("pr")
+@Component
 public class DataComponentProduction implements DataServiceProduction{
 	final private DataServiceProduction production;
 	

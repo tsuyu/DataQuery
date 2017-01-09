@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 import com.dm.client.DataServiceStaging;
 
-@Component("st")
+@Component
 public class DataComponentStaging implements DataServiceStaging{
 	final private DataServiceStaging staging;
 	

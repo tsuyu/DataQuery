@@ -7,7 +7,6 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.*;
 
 @Configuration
@@ -15,7 +14,6 @@ import org.springframework.context.annotation.*;
 public class DataApplication {
 
 	@Bean
-	@Qualifier("stdb")
 	DataServiceStaging mockDataServiceStaging() {
 		return new DataServiceStaging() {
 			public Connection getConnection() throws Exception {
@@ -28,7 +26,6 @@ public class DataApplication {
 	}
 	
 	@Bean
-	@Qualifier("prdb")
 	DataServiceProduction mockDataServiceProduction() {
 		return new DataServiceProduction() {
 			public Connection getConnection() throws Exception {
